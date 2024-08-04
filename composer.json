@@ -1,0 +1,28 @@
+{
+    "name": "vundb/service-bundle",
+    "description": "Symfony bundle used to build serverless microservices.",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Vundb\\ServiceBundle\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Viktor Breitenbücher",
+            "email": "breitenbuecher.viktor@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/framework-bundle": "^7.0",
+        "vundb/firestore-bundle": "^0.5",
+        "symfony/console": "^7.0"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/vundb/firestore-bundle.git"
+        }
+    ]
+}
