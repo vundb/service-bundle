@@ -1,0 +1,13 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  Vundb\ServiceBundle\:
+    resource: "../src/*"
+    exclude: "../../{DependencyInjection,Entity,Migrations,Tests,Kernel.php}"
+
+  Vundb\ServiceBundle\Repository\UserRepository:
+    arguments:
+      $database: "%vundb_service.database_name%"
+      $hydrator: '@Vundb\ServiceBundle\Hydrator\UserHydrator'

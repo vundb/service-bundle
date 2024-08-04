@@ -8,6 +8,11 @@
             "Vundb\\ServiceBundle\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Vundb\\ServiceBundle\\Tests\\": "tests/"
+        }
+    },
     "authors": [
         {
             "name": "Viktor Breitenbücher",
@@ -16,8 +21,10 @@
     ],
     "require": {
         "symfony/framework-bundle": "^7.0",
-        "vundb/firestore-bundle": "^0.5",
-        "symfony/console": "^7.0"
+        "symfony/console": "^7.0",
+        "symfony/security-bundle": "^7.0",
+        "symfony/validator": "^7.0",
+        "vundb/firestore-bundle": "^0.5"
     },
     "repositories": [
         {
