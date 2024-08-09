@@ -35,6 +35,16 @@ class UserRepository extends Repository
         return $users;
     }
 
+    public function findOneByUsername(string $username): ?User
+    {
+        $users = $this->findByUsername($username);
+        if (empty($users)) {
+            return null;
+        }
+
+        return $users[0];
+    }
+
     protected function collection(): string
     {
         return self::COLLECTION;
