@@ -15,8 +15,7 @@ class UserProvider implements UserProviderInterface, PasswordUpgraderInterface
 {
     public function __construct(
         private UserRepository $userRepository
-    ) {
-    }
+    ) {}
 
     /**
      * Symfony calls this method if you use features like switch_user
@@ -29,7 +28,7 @@ class UserProvider implements UserProviderInterface, PasswordUpgraderInterface
      */
     public function loadUserByIdentifier($identifier): UserInterface
     {
-        $user = $this->userRepository->findOneById($identifier);
+        $user = $this->userRepository->findOneByUsername($identifier);
         if (is_null($user)) {
             throw new UserNotFoundException();
         }
