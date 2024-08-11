@@ -9,20 +9,23 @@ use Vundb\FirestoreBundle\Entity\Entity;
 /**
  * @extends Entity<User>
  * @method string getUsername()
- * @method self setUsername(string $value)
  * @method ?\DateTime getCreated()
+ * @method array getTokens()
+ * @method array getConfig()
+ * @method self setUsername(string $value)
+ * @method self setPassword(string $value)
  * @method self setCreated(\DateTime $value)
  * @method self setRoles(array $value)
- * @method array getTokens()
  * @method self setTokens(array $value)
- * @method array getConfig()
  * @method self setConfig(array $value)
  */
 class User extends Entity implements UserInterface, PasswordAuthenticatedUserInterface
 {
     protected string $username = '';
 
-    protected array $roles = [];
+    protected string $password = '';
+
+    protected array $roles = ['ROLE_USER'];
 
     protected array $tokens = [];
 
@@ -50,7 +53,7 @@ class User extends Entity implements UserInterface, PasswordAuthenticatedUserInt
 
     public function getPassword(): string
     {
-        return '';
+        return $this->password;
     }
 
     public function eraseCredentials(): void

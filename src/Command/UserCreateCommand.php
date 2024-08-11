@@ -15,7 +15,7 @@ use Vundb\ServiceBundle\Repository\UserRepository;
 
 #[AsCommand(
     name: 'user:create',
-    description: 'Creates a new user',
+    description: 'Creates a new user.',
 )]
 class UserCreateCommand extends Command
 {
