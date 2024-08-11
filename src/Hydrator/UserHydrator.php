@@ -12,6 +12,7 @@ class UserHydrator implements HydratorInterface
         return (new User())
             ->setId($document->id())
             ->setUsername($document->get('username'))
+            ->setPassword($document->offsetExists('password') ? $document->get('password') : '')
             ->setRoles($document->get('roles'))
             ->setTokens($document->get('tokens'))
             ->setCreated(new \DateTime($document->get('created')))
