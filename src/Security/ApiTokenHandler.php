@@ -12,8 +12,7 @@ class ApiTokenHandler implements AccessTokenHandlerInterface
 {
     public function __construct(
         private UserRepository $userRepository
-    ) {
-    }
+    ) {}
 
     public function getUserBadgeFrom(string $accessToken): UserBadge
     {
@@ -22,6 +21,6 @@ class ApiTokenHandler implements AccessTokenHandlerInterface
             throw new BadCredentialsException('Invalid credentials.');
         }
 
-        return new UserBadge($users[0]->getId());
+        return new UserBadge($users[0]->getUserIdentifier());
     }
 }
