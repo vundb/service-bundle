@@ -16,6 +16,6 @@ class UserHydrator implements HydratorInterface
             ->setRoles($document->get('roles'))
             ->setTokens($document->get('tokens'))
             ->setCreated(new \DateTime($document->get('created')))
-            ->setConfig($document->get('config'));
+            ->setConfig($document->offsetExists('config') ? $document->get('config') : []);
     }
 }
