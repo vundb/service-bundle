@@ -65,4 +65,20 @@ class User extends Entity implements UserInterface, PasswordAuthenticatedUserInt
     {
         return $this->getUsername();
     }
+
+    public function getConfigValue(string $path): mixed
+    {
+        $config = $this->config;
+        $items = explode('.', $path);
+
+        foreach ($items as $item) {
+            if (!isset($config[$item])) {
+                return null;
+            }
+
+            $config = $config[$item];
+        }
+
+        return $config;
+    }
 }
